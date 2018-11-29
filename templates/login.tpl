@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="headerLogin.tpl"}
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
            <form action="verify" method="POST">

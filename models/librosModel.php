@@ -6,8 +6,8 @@ class librosModel extends Conexion
 	
   	function getlibros()
 	 {
-		 #$sentence=$this->db_connection->prepare("SELECT libro.*, editorial.* FROM libro, editorial WHERE libro.id_editorial=editorial.id_editorial");
-		  $sentencia = $this->db_connection->prepare( "select * from libro");
+		$sentencia=$this->db_connection->prepare("SELECT libro.*, editorial.nombre as nombre_editorial FROM libro, editorial WHERE libro.id_editorial=editorial.id_editorial");
+		  //$sentencia = $this->db_connection->prepare( "select * from libro");
 		 $sentencia->execute();
 		 return $sentencia->fetchAll(PDO::FETCH_OBJ);
 	 }
@@ -36,11 +36,13 @@ class librosModel extends Conexion
 			$consulta->execute(array($id_edit,$nombre,$paginas,$isbn,$autor,$tema));
 		}
 	
-	function editarlibro($id,$id_edit,$nombre,$paginas,$isbn,$autor,$tema)	
+	function guardar_datos_editados($id,$id_edit,$nombre,$paginas,$isbn,$autor,$tema)	
 	{
 	$consulta = $this->db_connection->prepare("UPDATE libro SET id_editorial=?,nombre=?,num_pagina=?,isbn=?,autor=?,tema=? WHERE id_libro=?");
-	$consulta->execute(array($id_edit,$nombre,$paginas,$isbn,$autor,$tema,$id));	
+	#$consulta->execute(array($id,$id_edit,$nombre,$paginas,$isbn,$autor,$tema));
+	$resultado = $consulta->execute([$id_edit,$nombre,$paginas,$isbn,$autor,$tema,$id]);
 	}
+	
 }
 
  

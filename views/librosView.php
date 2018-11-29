@@ -29,6 +29,15 @@
       $smarty->display('templates/mostrar_libros.tpl');
     }
 
+	 public function mostrarlibrosUsuario($libros)
+	 {
+		  // Creamos una instancia de la clase smarty
+      $smarty = new Smarty();
+      $smarty->assign('libros',$libros);
+	  $smarty->assign('basehref', $this->basehref);
+      // Renderizamos el archivo
+      $smarty->display('templates/mostrar_libros_usuario.tpl'); 
+	 }
 
       public function mostrar_un_Libro($libro)
       {
@@ -45,21 +54,12 @@
 		 $smarty->display('templates/altas_libros.tpl');
 	 }
 	 
-	 public function mostrar_Error(){
-		 $smarty = new Smarty();
-		 $smarty->display('templates/mostrar_error.tpl');
-	 }
-	 
-	 public function mostrar_mensaje(){
-		 $smarty = new Smarty();
-		 $smarty->display('templates/mostrar_mensaje.tpl');
-	 }
-	 
-	 function crear_el_libro($libro,$editoriales)
+	 function crear_el_libro($libro,$editoriales,$idEdit)
 	 {
 		 $smarty = new Smarty();
 		 $smarty->assign('libro',$libro);
 		 $smarty->assign('editorial',$editoriales);
+		 $smarty->assign('la_editorial',$idEdit);
 		 $smarty->display('templates/crearIDlibro.tpl');
 	 }
 }

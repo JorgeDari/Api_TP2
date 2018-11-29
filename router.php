@@ -95,13 +95,11 @@ switch ($partesURL[ACTION])
 		
     case 'logout' :
         $controller = new loginController();
-        $controller->cerrarSesion();
+        $controller->CloseSession();
     	break;
 		
      default :
-        #$controller = new loginController();
-        #$controller->mostrar_Login();
 		$controller = new librosController(); 
-		$controller->mostrarLibros();
+		$controller->mostrar_libros_usuario();
         break;
 }

@@ -5,9 +5,6 @@
 //require_once 'controllers/controller.php';
 
 
-define('HOME', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/inicio');
-
-
    class EditorialController
    {
 	   

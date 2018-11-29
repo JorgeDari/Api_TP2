@@ -1,10 +1,9 @@
 <?php
 
-//define("HOME", 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/inicio');
-//define("LIBRO", 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/verlibros');
-//define("EDITORIAL", 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/vereditorial');
 define('HOME', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/verlibros');
 define('ADMIN', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/inicio');
+define('LOGIN', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/login');
+
 
 require_once 'views/loginView.php';
 require_once "libs/Smarty.class.php";
@@ -16,9 +15,9 @@ class controller {
         protected $model;
         
         public function __construct(){
-			$this->view = new LoginView();
+			$this->loginView = new LoginView();
 			$this->librosView = new librosView;
-        	$this->userModel = new UserModel();
+        	$this->loginUserModel = new UserModel();
 			$this->librosModel = new librosModel();
         }
 	
@@ -26,5 +25,13 @@ class controller {
 		
 	}
 	
-    }
+	function isAdmin() {
+		session_start();
+        if (isset($_SESSION['USERNAME']))
+			return true;
+		return false;
+		
+	}
+	
+  }
 ?>

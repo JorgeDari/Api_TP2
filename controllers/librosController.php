@@ -5,26 +5,36 @@ require_once 'models/EditorialModel.php';
 require_once 'views/EditorialView.php';
 require_once 'controllers/controller.php';
 
-
-
-
-//class librosController extends controller{
 class librosController extends controller
 {
-#private $model;
-#private $view;#
-private $modelEdit;
-private $viewEdit;
+	#private $model;
+	#private $view;#
+	private $modelEdit;
+	private $viewEdit;
 
-public function __construct() 
-{
-	   parent::__construct();
-	   $this->modelEdit = new EditorialModel;
-	   $this->viewEdit = new EditorialView;
-}
+	public function __construct() 
+	{
+		   parent::__construct();
+		   $this->modelEdit = new EditorialModel;
+		   $this->viewEdit = new EditorialView;
+	}
 
+	
+	function mostrar_libros_usuario()
+	{
+	   
+      $libros = $this->librosModel->getlibros(); // trae de la base de datos todos los libros
+	   if (!empty($libros)){
+		   $this->librosView->mostrarLibrosUsuario($libros);
+	  }else{
+		 $this->librosView->mostrar_mensaje();
+	  }
+   }
+	
+	
    function mostrarLibros()
    {
+	   
       $libros = $this->librosModel->getlibros(); // trae de la base de datos todos los libros
 	   if (!empty($libros)){
 		   $this->librosView->mostrarLibros($libros);
@@ -42,24 +52,35 @@ public function __construct()
 	  }else{
 		 $this->librosView->mostrar_Error();
 	  }    
-	  	header("Location:".HOME);
    }
 	
 	function eliminar_un_libro($id)
 	{
+		if (!$this->isAdmin()) {
+			header("Location:".LOGIN);
+			die();
+		}
 	   // Me trae de la base de datos el libro con el id_libro=$id
 	   $this->librosModel->eliminar_un_libro($id);	
-	   header("Location: http://localhost/MVC_APP/");	
+	   header("Location:".HOME);	
 	}
 	
 	function cargar_un_libro()
 	{
+		if (!$this->isAdmin()) {
+			header("Location:".LOGIN);
+			die();
+		}
 		$editoriales = $this->modelEdit->getEditoriales(); // Me traigo las editoriales de la B. Datos
 		$this->librosView->cargar_un_libro($editoriales);
 	}
 
 	function agregar_un_libro()
 	{
+		if (!$this->isAdmin()) {
+			header("Location:".LOGIN);
+			die();
+		}
 		$id_editorial=$_POST["id_Edit"];
 		$nombre=$_POST["nombre"];
 		$paginas=$_POST["paginas"];		
@@ -72,29 +93,40 @@ public function __construct()
 
 	function crear_libro($id)
 	{
-		$libro = $this->librosModel->get_un_libro($id);
+		if (!$this->isAdmin()) {
+			header("Location:".LOGIN);
+			die();
+		}
+		$libro = $this->librosModel->get_un_libro($id); // Me traigo el libro Id de la Base de datos
 		if (!empty($libro))
 		  {
+				$id_edit = $this->modelEdit->one_get_editorial($libro->id_editorial);
 				$editoriales = $this->modelEdit->getEditoriales(); // Me traigo las editoriales de la Base de Datos
-				$this->librosView->crear_el_libro($libro,$editoriales);
+				$this->librosView->crear_el_libro($libro,$editoriales,$id_edit);
 		  }
 		else{
-			 $this->librosView->mostrar_Error();
+			 $this->librosView->mostrar_Error(); 
 			 header("Location:".HOME);
 			}
 	}	
 	
 	function editar_un_libro($id)
 	{
-		$id_libro=$_POST["id_libro"];
-		$id_editorial=$_POST["id_editorial"];
-		$nombre=$_POST["nombre"];
-		$paginas=$_POST["paginas"];		
-		$isbn=$_POST["isbn"];
-		$autor=$_POST["autor"];
-		$tema=$_POST["tema"];
-		$this->librosModel->editarLibro($id_libro,$id_editorial,$nombre,$paginas,$isbn,$autor,$tema);
-		header("Location: "."verlibros");
+		
+		if (!$this->isAdmin()) {
+			header("Location:".LOGIN);
+			die();
+		}
+		
+		$id_libro=$id;
+		$fk_editorial=$_POST['fk_editorial'];
+		$nombre=$_POST['nombre'];
+		$paginas=$_POST['paginas'];		
+		$isbn=$_POST['isbn'];
+		$autor=$_POST['autor'];
+		$tema=$_POST['tema'];
+		$this->librosModel->guardar_datos_editados($id_libro,$fk_editorial,$nombre,$paginas,$isbn,$autor,$tema);
+		header("Location: ". HOME);
 		die();
 	}
 }

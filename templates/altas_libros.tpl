@@ -4,11 +4,12 @@
     <form  method="post" action="grabarlibro">
     <action>
     	<legend>ALTA DE DATOS - LIBROS -</legend>
-		<P><label>Nro de Editorial:</label></p>
+		 <p><label>NOMBRE DE LA EDITORIAL:</label></P>;		
+
        <select  name="id_Edit">
-            <option value="-1">Editoriales</option>
+            <option value="1">Editoriales</option>
 				{foreach from=$editorial item=edit}
-			<option value="{$edit->id_editorial}">{$edit->nombre}</option>
+					<option value="{$edit->id_editorial}">{$edit->nombre}</option>
 				{/foreach}
 		</select>
         <p><label>Nombre:<input type="text" name="nombre"></label></P>;

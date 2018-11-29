@@ -2,7 +2,7 @@
 	<div class="panel panel-primary">
 		<div class="panel panel-heading"> <center> <b>Agregar Usuario</b></center></div>
 		  <div class="panel panel-body" width="95%">
-			<form name="agregar_usuario" method="post">
+			<form name="verify" method="post">
 			{$alerta}
 				<div class="form-group">
 					<div class="input-group">
