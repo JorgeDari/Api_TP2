@@ -2,8 +2,7 @@
 
 require_once 'api/JSONView.php';
 
-abstract class ApiController extends JSONView 
-{
+abstract class ApiController {
 
     protected $model;
     protected $view;

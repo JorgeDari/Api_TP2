@@ -6,15 +6,14 @@ class comentarioTaskModel
     
     function __construct()
     {
-        $this->db_connection = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', '');
+        $this->db_connection = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', 'worksidll32');
     }
 	
     function getComentarioAll()
     {
         $sentencia = $this->db_connection->prepare( "select * from comentario");
         $sentencia->execute();
-		var_dump($sentencia);
-        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+		return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
     function getComentarioId($id)

@@ -5,7 +5,7 @@
 	$re_password=$_POST["re_password"];
 	if ($password!=$re_password)
 	{
-		$alerta="<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign></span>'">El password no coincide</div>";
+		$alerta="<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign></span>El password no coincide</div>";
 		$smarty->assign("alerta",$alerta);
 	}
 	$smarty->display("templates/registrar_usuario.tpl");

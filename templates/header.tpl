@@ -4,7 +4,7 @@
 	 	<base href="http://localhost/MVC_APP/">
 	 	
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<title>{$titulo}</title>
+		<title>LIBROS</title>
  	</head>
 	<body>
 		<div class="container" style="width:90%">
