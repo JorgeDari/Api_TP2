@@ -21,7 +21,7 @@
 			 $url = $this->getUrl();
 			
 			// Buscar si existe el controlador buscado
-			if (file_exists('../MVC_APP/controllers/'.ucwords($url[0]).'.php'))
+			if (file_exists('controllers/'.ucwords($url[0]).'.php'))
 			{
 				// si existe se setea como controlador por defecto
 				$this->controladorActual = ucwords($url[0]);
@@ -35,7 +35,7 @@
 //			2.- parametro
 			
 			// requerir el controlador
-			require_once '../MVC_APP/controllers/'.$this->controladorActual.'.php';
+			require_once 'controllers/'.$this->controladorActual.'.php';
 			$this->controladorActual = new $this->controladorActual;
 			
 			//Cheaquear la segunda parte de lA Url que seria el metodo

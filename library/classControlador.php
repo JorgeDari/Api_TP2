@@ -9,7 +9,7 @@
 		
 		public function modelo($modelo)
 		{
-			require_once '../MVC_APP/models/'.$modelo.'.php';
+			require_once 'models/'.$modelo.'.php';
 			// Instanciamos el modelo
 			return	new $modelo();
 		}
@@ -20,9 +20,9 @@
 		{
 			// Chequear si el archivo vista existe
 			
-			if (file_exists( '../MVC_APP/views/'.$vista.'.php'))
+			if (file_exists( 'views/'.$vista.'.php'))
 			{
-				require_once '../MVC_APP/views/'.$vista.'.php';
+				require_once 'views/'.$vista.'.php';
 			}
 			else
 			{

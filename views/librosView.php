@@ -19,6 +19,12 @@
 		$smarty->display("footer.tpl");
 	}
   
+	function mostrar_Error()
+    {
+      // error
+      
+	}
+	
     function mostrarLibros($libros)
     {
       // Creamos una instancia de la clase smarty

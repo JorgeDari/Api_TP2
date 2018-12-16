@@ -17,7 +17,7 @@ class comentarioApiController extends ApiController {
         }
         else {
             $comentario_id = $params[':ID'];
-            $comentario = $this->model->get($comentario_id);
+            $comentario = $this->model->get_libro_comentario($comentario_id);
              if ($comentario)
                 $this->view->response($comentario, 200);
             else // si no existe el comentario
