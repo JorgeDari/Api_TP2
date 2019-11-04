@@ -4,7 +4,8 @@
            <form action="verify" method="POST">
             <div class="form-group">
               <label for="usuario">Usuario</label>
-              <input type="text" class="form-control" id="usuario" name="username" placeholder="nombre de usuario" required>
+              <input type="text" class="form-control" id="usuario" name="username" placeholder="Insert username" required>
+
             </div>
             <div class="form-group">
               <label for="password">Password</label>

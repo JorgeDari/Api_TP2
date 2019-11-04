@@ -6,7 +6,7 @@ class UserModel {
     
     function __construct()
     {
-        $this->db_connection = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', 'worksidll32');	
+        $this->db_connection = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', '1234');	
     }
 
     public function getUser($username) {

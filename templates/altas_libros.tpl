@@ -1,8 +1,5 @@
 {include file="header.tpl"}
- 
-   <tbody>
-    <form  method="post" action="grabarlibro">
-    <action>
+    <form method="POST" action="grabarlibro">
     	<legend>ALTA DE DATOS - LIBROS -</legend>
 		 <p><label>NOMBRE DE LA EDITORIAL:</label></P>;		
 
@@ -13,13 +10,11 @@
 				{/foreach}
 		</select>
         <p><label>Nombre:<input type="text" name="nombre"></label></P>;
-        <P><label>Numero de Paginas:<input type="number" name="paginas"></label></P>;
+        <P><label>Numero de Paginas:<input name="paginas"></label></P>;
         <P><label>ISBN:<input type="text" name="isbn"></label></P>;
         <P><label>Autor:<input type="text" name="autor"></label></P>;
         <P><label>Tema:<input type="text" name="tema"></label></P>;
         <P><input type="submit"></P>;
-    </action>
     </form>
-   </tbody>
 
 {include file="footer.tpl"}

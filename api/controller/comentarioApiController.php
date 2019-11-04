@@ -3,7 +3,7 @@
 require_once "apiController.php";
 require_once 'models/comentarioModel.php';
 
-class legajoCatastroApiController extends ApiController {
+class comentarioApiController extends ApiController {
 
     public function __construct() {
         parent::__construct();

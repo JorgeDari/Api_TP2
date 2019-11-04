@@ -1,18 +1,4 @@
-<html>
-	<head>
-	 	
-	 	<base href="http://localhost/MVC_APP/">
-	 	
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<title>LIBROS</title>
- 	</head>
-	<body>
-		<div class="container" style="width:90%">
- 		<h1  class="container well">Base de Datos - Biblioteca</h1>
- 	
-  
-<!--
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <base href="{$basehref}">
@@ -50,11 +36,17 @@
                             <a class="btn btn-outline-success logearse" href="login">Logearse</a>
                         {/if}
                     </li>
+<
                 </ul>
+<
             </div>
+<
         </nav>
+<
         <div class="container-fluid p-0">
             <div class="row m-0 mt-5 pt-5">
-    
--->
+    </body>
+</html>
+
+
 	  

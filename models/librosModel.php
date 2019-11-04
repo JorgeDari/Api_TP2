@@ -10,7 +10,7 @@ class librosModel extends Conexion
 		  //$sentencia = $this->db_connection->prepare( "select * from libro");
 		 $sentencia->execute();
 		 return $sentencia->fetchAll(PDO::FETCH_OBJ);
-	 }
+	 }git
 
   	function get_un_libro($id_libro)
 	  {

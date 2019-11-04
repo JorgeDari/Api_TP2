@@ -2,7 +2,7 @@
 	// Configuracion de acceso a la Base de Datos
 	define('DB_HOST','localhost');
 	define('DB_USUARIO','root');
-	define('DB_PASSWORD','');
+	define('DB_PASSWORD','1234');
 	define('DB_NOMBRE','biblioteca');
 
 
