@@ -1,9 +1,9 @@
 <?php
 	
-	require_once 'models/class.conexion.php';  
+	require_once "model.php";
+ 
 
-
-   class EditorialModel extends Conexion
+   class EditorialModel extends Model
    {
 	   
 	   function getEditoriales()

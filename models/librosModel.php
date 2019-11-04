@@ -1,7 +1,7 @@
 <?php
-require_once 'models/class.conexion.php';  
+require_once "model.php";
 
-class librosModel extends Conexion
+class librosModel extends Model 
 {
 	
   	function getlibros()

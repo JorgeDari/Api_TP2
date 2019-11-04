@@ -35,9 +35,7 @@ abstract class Model {
         }      
     }  
 
-    abstract function getAll(); // abstract obliga al hijo a extender este hijo
-
-    abstract function get($id);
+    
 
     function crearDB(){
       

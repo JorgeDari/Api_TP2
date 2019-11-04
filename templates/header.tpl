@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <!DOCTYPE html>
 <html>
     <head>
@@ -50,3 +51,13 @@
 
 
 	  
+=======
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<title>LIBROS</title>
+ 	</head>
+	<body>
+		<div class="container" style="width:90%">
+ 		    <h1  class="container well">Base de Datos - Biblioteca</h1>
+>>>>>>> e610c30f7ed895450e0f22b4e40182031c4a72bc
