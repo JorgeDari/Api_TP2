@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="headerListadoLibros.tpl"}
  <table>
    <tbody>
        {foreach from=$libros item=libro}

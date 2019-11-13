@@ -26,9 +26,11 @@
 		 $smarty->display('templates/mostrar_mensaje.tpl');
 	 }
 	 
-	 public function cargar_una_editorial()
+	 public function cargar_una_editorial($editorial)
 	 {
 		 $smarty = new Smarty();
+		 $smarty->assign('editorial',$editorial);
+		 $smarty->assign('basehref', $this->basehref);
 		 $smarty->display('templates/altas_editorial.tpl');
 	 }
 	 

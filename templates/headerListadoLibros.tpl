@@ -6,5 +6,5 @@
  	</head>
 	<body>
 		<div class="container" style="width:90%">
- 			<h1  class="container well">INICIAR SESION</h1>
+ 			<h1  class="container well">LISTADO DE LIBROS - USUARIO NO REGISTRADO</h1>
  	

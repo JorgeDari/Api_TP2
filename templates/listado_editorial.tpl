@@ -8,5 +8,5 @@
 		    {/foreach}
    </tbody>
  </table>
-		<a href="cargarlibro"><button>Agregar -- EDITORIAL -- </button></a>
+		<a href="add_editorial"><button>Agregar -- EDITORIAL -- </button></a>
 {include file="footer.tpl"}

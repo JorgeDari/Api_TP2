@@ -64,17 +64,32 @@ switch ($partesURL[ACTION])
 		break;
 		
 	case "ver_editoriales":
-		$controller = new EditorialController();
+		$controller = new editorialController();
 		$controller->verEditoriales();
 		break;
-		
+	
+	case "ver_una_editorial":
+		$controller = new editorialController();
+		$controller->cargar_una_editorial($partesURL[VALOR1]);
+		break;
+			
+	case "edit_editorial":
+		$controller = new editorialController();
+		$controller->edit_editorial($partesURL[VALOR1]);
+		break;	
+
 	case "add_editorial":
-		$controller = new EditorialController();
+		$controller = new editorialController();
 		$controller->cargar_una_editorial();
+		break;
+
+	case "eliminar_ediorial":  // Borro un libro de la base de Datos
+		$controller = new editorialController();
+		$controller->eliminar_una_editorial($partesURL[VALOR1]); 
 		break;
 		
 	case "grabar_editorial":
-		$controller = new EditorialController();
+		$controller = new editorialController();
 		$controller->add_editorial();
 		break;	
 		

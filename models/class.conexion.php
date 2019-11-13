@@ -8,7 +8,6 @@
 		{
 			try{
 				$this->db_connection = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', '1234');	
-				echo('Conexion OK');
 			}catch(Exception $e){
 				//TODO: autoinstall
 				 die ('Error'.$e->GetMesasge());

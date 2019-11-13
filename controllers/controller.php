@@ -26,7 +26,7 @@ class controller {
 	}
 	
 	function isAdmin() {
-		session_start();
+		// session_start();
         if (isset($_SESSION['USERNAME']))
 			return true;
 		return false;

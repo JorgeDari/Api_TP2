@@ -1,7 +1,7 @@
 <?php
-require_once "model.php";
+require_once 'models/class.conexion.php';  
 
-class librosModel extends Model 
+class librosModel extends Conexion
 {
 	
   	function getlibros()
@@ -10,7 +10,7 @@ class librosModel extends Model
 		  //$sentencia = $this->db_connection->prepare( "select * from libro");
 		 $sentencia->execute();
 		 return $sentencia->fetchAll(PDO::FETCH_OBJ);
-	 }git
+	 }
 
   	function get_un_libro($id_libro)
 	  {
