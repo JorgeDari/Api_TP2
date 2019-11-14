@@ -23,6 +23,14 @@
 		   $laEditorial->execute(array($id));
 		   return $laEditorial->fetch(PDO::FETCH_OBJ);
 	   }
+
+	   function one_get_editorial($id)
+	   {
+		   $laEditorial = $this->db_connection->prepare("select * FROM editorial WHERE editorial.id_editorial=?");
+		   $laEditorial->execute(array($id));
+		   return $laEditorial->fetch(PDO::FETCH_OBJ);
+	   }
+	   
 	   
 	   public function grabar_una_editorial($id,$nombre)
 	   {

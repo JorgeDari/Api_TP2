@@ -40,7 +40,7 @@ class librosModel extends Conexion
 	{
 	$consulta = $this->db_connection->prepare("UPDATE libro SET id_editorial=?,nombre=?,num_pagina=?,isbn=?,autor=?,tema=? WHERE id_libro=?");
 	#$consulta->execute(array($id,$id_edit,$nombre,$paginas,$isbn,$autor,$tema));
-	$resultado = $consulta->execute([$id_edit,$nombre,$paginas,$isbn,$autor,$tema,$id]);
+	$resultado = $consulta->execute([$ID,$id_edit,$nombre,$paginas,$isbn,$autor,$tema]);
 	}
 	
 }
