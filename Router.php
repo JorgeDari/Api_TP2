@@ -5,7 +5,6 @@ require_once 'controllers/loginController.php';
 require_once 'views/librosView.php';
 require_once 'views/inicio.php';
 
-<<<<<<< HEAD
 class Route {
     private $url;
     private $verb;
@@ -49,18 +48,6 @@ class Route {
         (new $controller())->$method($params);
     }
 }
-=======
-// constantes
-	
-define('ACTION',0);
-define('VALOR1',1);
-define('VALOR2',2);
-define('VALOR3',3);
-
-// si no indica "action" forzamos asi a entrar al default
-if (!isset($_GET['action']))
-    $_GET['action'] = '';
->>>>>>> e610c30f7ed895450e0f22b4e40182031c4a72bc
 
 // parsea (separa) la url (si viene "sumar/5/8" => [sumar, 5, 8])
 $action = $_GET['action'];
