@@ -68,6 +68,7 @@
 		 $smarty->assign('libro',$libro);
 		 $smarty->assign('editorial',$editoriales);
 		 $smarty->assign('la_editorial',$idEdit);
+		 $smarty->assign('basehref', $this->basehref);
 		 $smarty->display('templates/crearIDlibro.tpl');
 	 }
 }

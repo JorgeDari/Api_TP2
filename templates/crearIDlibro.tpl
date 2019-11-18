@@ -2,6 +2,7 @@
     <div class="col">
         <div class="card text-white bg-dark mb-3" style="max-width: 100rem;">
             <div class="card-header">Ingresar los nuevos datos del LIBRO</div>
+            
             <form class="bg-danger p-3 w-100" method="POST" action="editarlibro/{$libro->id_libro}">
               
                

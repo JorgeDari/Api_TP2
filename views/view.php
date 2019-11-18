@@ -1,4 +1,7 @@
 <?php
+
+require_once "libs/Smarty.class.php";
+
 class view
 {
     protected $basehref;
@@ -9,7 +12,6 @@ class view
 	{
         session_start();
         if (isset($_SESSION['usuario'])) {$this->nombreUsuario = $_SESSION['usuario'];}
-    
         $this->smarty = new Smarty();
         $this->basehref = '//'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/';
         $this->smarty->assign("basehref", $this->basehref);

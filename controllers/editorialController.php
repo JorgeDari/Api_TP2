@@ -2,10 +2,10 @@
 
 	require_once 'models/EditorialModel.php';
 	require_once 'views/EditorialView.php';
-//require_once 'controllers/controller.php';
+    require_once 'controllers/controller.php';
 
 
-   class editorialController
+   class editorialController extends controller
    {
 	   
 	//    private $model;
@@ -13,6 +13,7 @@
 	   
 	   public function __construct() {
 
+ 			parent::__construct();
 		    $this->model = new EditorialModel();
        		$this->view = new  EditorialView(); 
 	   }

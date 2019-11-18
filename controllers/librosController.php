@@ -91,7 +91,7 @@ class librosController extends controller
 		header("Location:".HOME);
 	}
 
-	function crear_libro($id)
+	function actualizar_libro($id)
 	{
 		if (!$this->isAdmin()) {
 			header("Location:".LOGIN);
@@ -101,6 +101,7 @@ class librosController extends controller
 		if (!empty($libro))
 		  {
 				$id_edit = $this->modelEdit->one_get_editorial($libro->id_editorial);
+				var_dump($id_edit);
 				$editoriales = $this->modelEdit->getEditoriales(); // Me traigo las editoriales de la Base de Datos
 				$this->librosView->crear_el_libro($libro,$editoriales,$id_edit);
 		  }
@@ -127,7 +128,7 @@ class librosController extends controller
 		$tema=$_POST['tema'];
 		$this->librosModel->guardar_datos_editados($id_libro,$fk_editorial,$nombre,$paginas,$isbn,$autor,$tema);
 		header("Location: ". HOME);
-		die();
+		
 	}
 }
   

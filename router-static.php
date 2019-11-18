@@ -53,9 +53,9 @@ switch ($partesURL[ACTION])
 		$controller->agregar_un_libro();
 		break;
 		
-	case "actualizarlibro":
+	case "actualizarlibro": // Actualizamo un libre de la base de datos
 		 $controller = new librosController();
-		 $controller->crear_libro($partesURL[VALOR1]);
+		 $controller->actualizar_libro($partesURL[VALOR1]);
 		break;
 		
 	case "editarlibro":
