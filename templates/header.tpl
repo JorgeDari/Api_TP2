@@ -10,15 +10,10 @@
         
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="btn btn-outline-success inicio" href="inicio">INICIO</a></li>
-                    <li class="nav-item"><a class="btn btn-outline-success categoria" href="libros">LISTADOS DE LIBROS</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-success categoria" href="libros">LISTADOS DE LIBROS - (Usuario no Registrado)</a></li>
                     <li class="nav-item"><a class="btn btn-outline-success producto" href="ver_editoriales">LISTADO DE EDITORIALES</a></li>
                     <li class="nav-item">
                        {if !empty($nombreUsuario)}
@@ -30,9 +25,6 @@
                             
                 </ul>
             </div>
-
-        </nav>
-       
     </body>
 </html>
 

@@ -53,7 +53,7 @@ switch ($partesURL[ACTION])
 		$controller->agregar_un_libro();
 		break;
 		
-	case "actualizarlibro": // Actualizamo un libre de la base de datos
+	case "actualizarlibro": // Actualizamo un libro de la base de datos
 		 $controller = new librosController();
 		 $controller->actualizar_libro($partesURL[VALOR1]);
 		break;
@@ -80,17 +80,22 @@ switch ($partesURL[ACTION])
 
 	case "add_editorial":
 		$controller = new editorialController();
-		$controller->cargar_una_editorial();
+		$controller->alta_editorial();
 		break;
 
 	case "eliminar_ediorial":  // Borro un libro de la base de Datos
 		$controller = new editorialController();
 		$controller->eliminar_una_editorial($partesURL[VALOR1]); 
 		break;
+
+	case "actualizar_editorial":
+			$controller = new editorialController();
+			$controller->actualizar_editorial($partesURL[VALOR1]);
+			break;		
 		
 	case "grabar_editorial":
 		$controller = new editorialController();
-		$controller->add_editorial();
+		$controller->agregar_editorial();
 		break;	
 		
 	case "login": 
@@ -102,11 +107,6 @@ switch ($partesURL[ACTION])
 		$controller = new loginController();
 		$controller->verify();
 		break;	
-		
-	case 'eliminar_editorial':
-        $controller = new loginController();
-        $controller->verificarLogin();
-    	break;
 		
     case 'logout' :
         $controller = new loginController();

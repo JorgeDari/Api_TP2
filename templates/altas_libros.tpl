@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+
     <form method="POST" action="grabarlibro">
     	<legend>ALTA DE DATOS - LIBROS -</legend>
 		 <p><label>NOMBRE DE LA EDITORIAL:</label></P>;		

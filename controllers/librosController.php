@@ -19,7 +19,8 @@ class librosController extends controller
 		   $this->viewEdit = new EditorialView;
 	}
 
-	
+		   
+	// 
 	function mostrar_libros_usuario()
 	{
 	   
@@ -101,7 +102,6 @@ class librosController extends controller
 		if (!empty($libro))
 		  {
 				$id_edit = $this->modelEdit->one_get_editorial($libro->id_editorial);
-				var_dump($id_edit);
 				$editoriales = $this->modelEdit->getEditoriales(); // Me traigo las editoriales de la Base de Datos
 				$this->librosView->crear_el_libro($libro,$editoriales,$id_edit);
 		  }

@@ -11,11 +11,26 @@
            $this->basehref = '//'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/';
    }
 	 
+   function add_editorial(){
+	  $smarty = new Smarty();
+	  $smarty->assign('basehref', $this->basehref);
+	  $smarty->display('templates/altas_editorial.tpl');
+   }
+
+   function crear_una_editorial($editorial){
+	$smarty = new Smarty();
+	$smarty->assign('editorial',$editorial);
+	$smarty->assign('basehref', $this->basehref);
+	$smarty->display('templates/actualizar_editorial.tpl'); 
+   }
+
+
 	 function mostrarEditorial($editoriales)
     {
       // Creamos una instancia de la clase smarty
       $smarty = new Smarty();
-      $smarty->assign('editoriales',$editoriales);
+	  $smarty->assign('editoriales',$editoriales);
+	  $smarty->assign('basehref', $this->basehref);
       // Renderizamos el archivo
       $smarty->display('templates/mostrar_editorial.tpl');
     }
@@ -31,9 +46,16 @@
 		 $smarty = new Smarty();
 		 $smarty->assign('editorial',$editorial);
 		 $smarty->assign('basehref', $this->basehref);
-		 $smarty->display('templates/altas_editorial.tpl');
+		 $smarty->display('templates/mostrar_una_editorial.tpl');
 	 }
-	 
+
+	 public function editar_una_editorial($editorial){
+		$smarty = new Smarty();
+		$smarty->assign('editorial',$editorial);
+		$smarty->assign('basehref', $this->basehref);
+		$smarty->display('templates/editar_editorial.tpl');
+	 }
+
 	 public function selectEditorial($editorial)
 	 {
 		 $smarty = new Smarty();
