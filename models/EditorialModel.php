@@ -32,7 +32,7 @@
 	   }
 	   
 	   public function grabar_editorial_actualizada($id,$nombre){
-    	   $con = $this->db_connection->prepare("UPDATE editorial SET id_editorial=?,nombre=? WHERE id_editorial=?"); 
+    	   $con = $this->db_connection->prepare("UPDATE editorial SET nombre=? WHERE id_editorial=?"); 
 	    	$con->execute([$id,$nombre]);	   
 		}
 	   

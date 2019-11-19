@@ -5,10 +5,10 @@ require_once 'api/controller/comentarioApiController.php';
 
 $r = new Router();
 // rutas de la api
-$r->addRoute('comentario','GET','comentarioApiController','getComentarios');
-$r->addRoute('comentario/:ID','GET','comentarioApiController','getComentarios');
-$r->addRoute('comentario','POST','comentarioApiController','insertComentario');
-$r->addRoute('comentario','DELETE','comentarioApiController','eliminarComentario');
+$r->addRoute('comentarios','GET','comentarioApiController','getComentarios');
+$r->addRoute('libros/:ID/comentarios','GET','comentarioApiController','getComentarios');
+$r->addRoute('comentarios','POST','comentarioApiController','insertComentario');
+$r->addRoute('comentarios/:ID','DELETE','comentarioApiController','eliminarComentario');
 
 //run
 $r->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

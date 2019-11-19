@@ -42,4 +42,15 @@ class comentarioApiController extends ApiController {
         else
             $this->view->response("Error al guardar", 500);
     }  
+
+    public function eliminarComentario($param = []){
+        $idComentario = $param[':ID'];
+        $comentario = $this->model->get_comentario($idComentario);
+        if($comentario){
+            $this->view->response($comentario,200);
+        }else{
+            $this->view->response('error de lectura',404);
+        }
+
+    }
 }
