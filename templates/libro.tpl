@@ -1,5 +1,8 @@
 {include file="header.tpl"}
-	  <div class="container my-5">
+
+{include file="Vue/lista_comentarios.tpl"}
+
+	<div class="container my-5">
 	    	<h2>Formulario con FetchAPI</h2>
 		   	<tr>
 					<td><div class="col-md-3 col-md-offset-3 alert alert-danger" role="alert">Id Libro : {$libro->id_libro}</div> </td>
@@ -11,12 +14,16 @@
 					<td><div class="col-md-100 col-md-offset-3 alert alert-danger" role="alert">Tema : {$libro->tema}</div> </td>
 					<button id="btnComentario" name="{$libro->id_libro}" class="btn btn-primary" type="">Hacer un Comentario</button>
 					<button id="btnEliminarComentario" name="{$libro->id_libro}" class="btn btn-primary" type="">Eliminar un Comentario</button>
+				
 			
 			</tr>
+			 <section id="los_comentarios">
+
+			 </section>	
 			
-				<div id="los_comentarios">
-				</div>
+
+			
 	  </div>
-		<script src="./js/handlebars-v4.0.12.js"></script>
-		<script src="./js/mainAux.js"></script>
+	 	 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="./templates/js/mainComentarios.js"></script>
 {include file = 'footer.tpl'}
