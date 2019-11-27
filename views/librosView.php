@@ -36,6 +36,10 @@
       $smarty->display('templates/mostrar_libros.tpl');
     }
 
+	public function mostar_imagen(){
+		
+	}
+
 	 public function mostrarlibrosUsuario($libros)
 	 {
 		  // Creamos una instancia de la clase smarty

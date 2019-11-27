@@ -96,7 +96,12 @@ switch ($partesURL[ACTION])
 	case "grabar_editorial":
 		$controller = new editorialController();
 		$controller->agregar_editorial();
-		break;	
+		break;
+		
+	case "valida_foto": //insertamos una imagen del libro
+ 			$controller = new librosController();
+			$controller->agregar_foto($partesURL[VALOR1]);
+			break;	
 		
 	case "login": 
 		$controller = new loginController();

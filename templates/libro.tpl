@@ -2,7 +2,7 @@
 
 {include file="Vue/lista_comentarios.tpl"}
 
-	<div class="container my-5">
+	
 	    	<h2>Formulario con FetchAPI</h2>
 		   	<tr>
 					<td><div class="col-md-3 col-md-offset-3 alert alert-danger" role="alert">Id Libro : {$libro->id_libro}</div> </td>
@@ -12,10 +12,9 @@
 					<td><div class="col-md-15 col-md-offset-3 alert alert-danger" role="alert">ISBN : {$libro->ISBN}</div> </td>
 					<td><div class="col-md-100 col-md-offset-3 alert alert-danger" role="alert">Author : {$libro->autor}</div> </td>
 					<td><div class="col-md-100 col-md-offset-3 alert alert-danger" role="alert">Tema : {$libro->tema}</div> </td>
-					<button id="btnComentario" name="{$libro->id_libro}" class="btn btn-primary" type="">Hacer un Comentario</button>
+					<td><div class="col-md-100 col-md-offset-3 alert alert-danger" role="alert">Imagen : {$libro->ruta}</div> </td>
+					<button id="btnComentario" name="{$libro->id_libro}" class="btn btn-primary" type="">Ver los comentarios</button>
 					<button id="btnEliminarComentario" name="{$libro->id_libro}" class="btn btn-primary" type="">Eliminar un Comentario</button>
-				
-			
 			</tr>
 			 <section id="los_comentarios">
 
@@ -23,7 +22,7 @@
 			
 
 			
-	  </div>
+	 
 	 	 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<script src="./templates/js/mainComentarios.js"></script>
+		 <script src="./templates/js/mainComentarios.js"></script>
 {include file = 'footer.tpl'}

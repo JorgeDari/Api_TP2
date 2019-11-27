@@ -29,11 +29,11 @@ class librosModel extends Conexion
    }
 
 	
-	function grabar_un_libro($id_edit,$nombre,$paginas,$isbn,$autor,$tema)
+	function grabar_un_libro($id_edit,$nombre,$paginas,$isbn,$autor,$tema,$ruta)
 		{
-			$consulta = $this->db_connection->prepare("INSERT INTO libro (id_editorial,nombre,num_pagina,isbn,autor,tema) VALUES (?,?,?,?,?,?)");
+			$consulta = $this->db_connection->prepare("INSERT INTO libro (id_editorial,nombre,num_pagina,isbn,autor,tema,ruta) VALUES (?,?,?,?,?,?,?)");
 			// Ejecuto la consulta
-			$consulta->execute(array($id_edit,$nombre,$paginas,$isbn,$autor,$tema));
+			$consulta->execute(array($id_edit,$nombre,$paginas,$isbn,$autor,$tema,$ruta));
 		}
 	
 	function guardar_datos_editados($id,$id_edit,$nombre,$paginas,$isbn,$autor,$tema)	
@@ -42,6 +42,11 @@ class librosModel extends Conexion
 	$consulta->execute([$id_edit,$nombre,$paginas,$isbn,$autor,$tema,$id]);
 	}
 	
+	function grabar_una_foto($nom,$foto){
+
+		$consulta = $this->db_connection->prepare("INSERT INTO libro (nombre,foto) VALUES (?,?,?)");
+		$consulta->execute(array($idlib,$nom,$foto));
+	}
 }
 
  

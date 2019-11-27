@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 var los_comentarios = new Vue ({
     el:'#los_comentarios',
     data: {
-        subtitle: "Estoy renderizando con Vue",
+        subtitle: 'Estoy renderizando con Vue',
         tasks:[]
     }
 })
@@ -12,6 +12,7 @@ let btn_comentario = document.querySelector('#btnComentario');
 
 
 btn_comentario.addEventListener('click', c=>{
+    console.log('ESTOY ADENTRO DE LA FNCTION');
         let el_libro = btn_comentario.getAttribute("name");
         getComentario(el_libro);
 });
@@ -26,7 +27,7 @@ function getComentario(el_libro) {
         los_comentarios.tasks = tasks; // similar a $this->smarty->assign("tasks", $tasks)
     })
     .catch(error => console.log(error));
-
+}
 
 function createComentario(task) {
     let element = `${task.titulo}: ${task.descripcion}`;

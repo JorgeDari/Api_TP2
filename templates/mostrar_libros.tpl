@@ -17,7 +17,7 @@
      {/foreach}
    </tbody>
  </table>
-<a href="cargarlibro"><button>Agregar</button></a>
+<a href="cargarlibro"><button>Agregar Libro</button></a>
 <a href="logout"><button>Cerrar Session</button></a>
 
 {include file="footer.tpl"}
