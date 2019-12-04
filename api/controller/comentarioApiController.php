@@ -10,7 +10,7 @@ class comentarioApiController extends ApiController {
         $this->model = new comentarioModel();
     }
 
-    public function getComentarios($params = []) {
+    public function getComentarios($params = null) {
         if (empty($params)) {
          $comentario = $this->model->getAll();
          $this->view->response($comentario, 200);

@@ -18,7 +18,8 @@
             <center><table border="1">
                 
                 <tr bycolor="skyblue">
-                    <td bycolor="skyblue"><strong>Foto</strong></td><td><input type="file" name="foto" id="foto"></td>
+                    <td bycolor="skyblue"><strong>Foto</strong></td>
+                    <td><input type="file" name="foto" id="foto"></td>
                 </tr>
             </center> </table>
        <P><input type="submit"></P>

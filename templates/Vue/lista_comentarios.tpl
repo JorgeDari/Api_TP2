@@ -3,15 +3,11 @@
         <h3> {{ subtitle }} </h3>
     
         <ul>
-           <li v-for="task in tasks ">
-             <span {{ task.descripcion }} - {{task.puntaje}} </span> 
-    
-                    <a :data-id="task.id" class="btn-eliminar" href="#">eliminar</a>
-                    <a :data-id="task.id" class="btn-completar" href="#">completar</a>
+           <li v-for="comentario of comentarios ">
+            {{comentario.id}} {{ comentario.descripcion }} - {{comentario.puntaje}} 
+                    <button v-on:click="deleteComent(comentario.id)">Borrar Comentario</button>
            </li> 
         </ul>
     </section>
     
-
-
 {/literal}

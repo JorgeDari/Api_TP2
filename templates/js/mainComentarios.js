@@ -3,53 +3,66 @@
 var los_comentarios = new Vue ({
     el:'#los_comentarios',
     data: {
-        subtitle: 'Estoy renderizando con Vue',
-        tasks:[]
-    }
-})
+        subtitle: 'Lista de comentarios por medio de CSR',
+        comentarios:[],
+        puntaje:0,
+        nombre_post:''
 
-let btn_comentario = document.querySelector('#btnComentario');
+    },
+    methods:{
+        agregarComentario (){
+                console.log('Diste Click')
+            }
+         },
 
+        deleteComent: function (event,idcomentario){
+            fetch("api/libros/"+idcomentario,{
+                "method" : "DELETE"
+            })
+            .then(response => response.json())
+            .then( () => {
+                getComentario(idcomentario);
+                console.log("Consulta DELETE exitosa");
+            })
+            .catch(error => console.log(error));
+            }
+            
+    
+});
 
-btn_comentario.addEventListener('click', c=>{
-    console.log('ESTOY ADENTRO DE LA FNCTION');
-        let el_libro = btn_comentario.getAttribute("name");
+let btn_comentarioV = document.querySelector('#btnViewComentario');
+// let btn_comentarioA = document.querySelector('#btnAddComentario')
+//let btn_comentarioD = document.querySelector('#btnDeleteComentario')
+
+btn_comentarioV.addEventListener('click', c=>{
+    
+        let el_libro = btn_comentarioV.getAttribute("name");
         getComentario(el_libro);
 });
 
-
+    // btn_comentarioA.addEventListener('click', c=>{
+        
+    //     let el_libro = btn_comentarioA.getAttribute("name");
+    //     addComentario(el_libro);
+    // });
 
 
 function getComentario(el_libro) {
-    fetch("../api/comentario/" + el_libro)
-    .then(response => response.json())
-    .then(tasks => {
-        los_comentarios.tasks = tasks; // similar a $this->smarty->assign("tasks", $tasks)
-    })
-    .catch(error => console.log(error));
-}
-
-function createComentario(task) {
-    let element = `${task.titulo}: ${task.descripcion}`;
-    
-    if (task.finalizada == 1)
-        element = `<strike>${element}</strike>`;
-    else {
-        element += `<a href="tarea/${task.id}">Ver</a> `;
-        element += `<a href="finalizar/${task.id}">Finalizar</a> `;
-        element += `<a href="borrar/${task.id}">Eliminar</a>`;
-    }
-        
-    element = `<li>${element}</li>`;
-    return element;  
+    fetch("api/libros/" + el_libro +"/comentarios")
+    .then(response => response.json())	 
+    .then(comentarios => {
+        los_comentarios.comentarios = comentarios;         // similar a $this->smarty->assign("tasks", $tasks)
+        los_comentarios.puntaje = hacerPromedio(comentarios);
+      
+    }).catch(error => console.log(error));
 }
 
 
 function addComentario(el_libro) {
     
-    let elComentario = document.querySelector("#btnSuComentario").value;
+    let elComentario = document.querySelector("#btnAddComentario").value;
     let elPuntaje = document.querySelector("#su_puntaje").value;
-    let div = document.querySelector("#div_contenedor");
+    let div = document.querySelector("#los_comentarios");
     let data = {
         'descripcion' : elComentario,
         'puntaje' : elPuntaje,
@@ -57,7 +70,7 @@ function addComentario(el_libro) {
         'nombre_post' : 'jorge',        
     }
 
-    fetch("../api/comentario/", {
+    fetch("api/comentarios/", {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json"
@@ -78,4 +91,17 @@ function addComentario(el_libro) {
         }
       })
       .catch(e => console.log(e));
+}
+
+function hacerPromedio(comentarios){
+    let Puntaje= 0;
+    let cont = 0;
+    for(let comentario of comentarios){
+        Puntaje += Number(comentario.puntaje);
+        cont++;
+    }
+    Puntaje = Puntaje/cont;
+    let Promedio = Puntaje.toFixed(2);
+
+    return Promedio;
 }

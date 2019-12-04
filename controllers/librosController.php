@@ -20,38 +20,7 @@ class librosController extends controller
 	}
 
 		   
-	function agregar_foto(){
-		if (!$this->isAdmin()) {
-			header("Location:".LOGIN);
-			die();
-		}
-		$img=$_REQUEST["txtnom"]; // nombre de la foto
-		$foto=$_FILES["foto"]["name"]; // nombre de la foto que se esta subiendo
-		$tamaño=$_FILES["foto"]["size"];
-		$tipoImg=$_FILES["foto"]["type"];
-		$ruta=$_FILES["foto"]["tmp_name"]; // lugar donde se captura la foto
-		if ($tipoImg=="image/png")  {
-			$destino=$_SERVER['DOCUMENT_ROOT'].'Api_TP2_r/fotos/';
-			echo "Carpeta Destino".$destino;
-			 // movemos la imagen del directorio temporal al directorio escogido
-			 move_uploaded_file($_FILES['foto']['tmp_name'],$destino.$foto);
-		}else{
-			echo "solo se pueden subir imagen png";
-		}
-		
-		
-		// $destino_final = "Api_TP2_r/fotos/" . uniqid("", true) . "." 
-		// . strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
-		// echo "Carpeta Destino".$destino;
-		// move_uploaded_file($_FILES["tmp_name"],$destino_final);
-		
-		// copy($ruta,$destino);
-		
 	
-		//header("Location:".FOTOS);
-		die();
-	}
-
 
 	function mostrar_libros_usuario()
 	{
@@ -72,9 +41,11 @@ class librosController extends controller
 	   if (!empty($libros)){
 		   $this->librosView->mostrarLibros($libros);
 	  }else{
-		 $this->librosView->mostrar_mensaje();
-	  }
-   }
+		   $this->librosView->mostrar_mensaje("NO HAY LIBROS REGISTRADOS");
+			header("Location:".NEWLIBRO);
+			}
+	}
+   
 
 	function mostrar_un_Libro($id)
    {
@@ -90,7 +61,8 @@ class librosController extends controller
 	function eliminar_un_libro($id)
 	{
 		if (!$this->isAdmin()) {
-			header("Location:".LOGIN);$this.agregar_foto();
+			header("Location:".LOGIN);
+			$this.agregar_foto();
 			die();
 		}
 	   // Me trae de la base de datos el libro con el id_libro=$id
@@ -121,20 +93,17 @@ class librosController extends controller
 		$isbn=$_POST["isbn"];
 		$autor=$_POST["autor"];
 		$tema=$_POST["tema"];
-
-		// $img=$_REQUEST["txtnom"]; // nombre de la foto
 		$foto=$_FILES["foto"]["name"]; // nombre de la foto que se esta subiendo
-		$tamaño=$_FILES["foto"]["size"];
-		$tipoImg=$_FILES["foto"]["type"];
+		$tamaño=$_FILES["foto"]["size"]; // tamaño de la foto
+		$tipoImg=$_FILES["foto"]["type"]; // tipo de la foto 
 		$ruta=$_FILES["foto"]["tmp_name"]; // lugar donde se captura la foto
-		if ($tipoImg=="image/png" || $tipoImg=="image/jpg" || $tipoImg=="image/jpeg") {
+		$permitidos = array ("image/png","image/jpg","image/jpeg"); // tipo de fotos a seleccionar
+		if(in_array($_FILES["foto"]["type"],$permitidos)){
 			$destino=$_SERVER['DOCUMENT_ROOT'].'Api_TP2_r/fotos/';
-			echo "Carpeta Destino".$destino;
-			 // movemos la imagen del directorio temporal al directorio escogido
-			 move_uploaded_file($_FILES['foto']['tmp_name'],$destino.$foto);
-			 $this->librosModel->grabar_un_libro($id_editorial,$nombre,$paginas,$isbn,$autor,$tema,$destino.$foto);
+			move_uploaded_file($_FILES['foto']['tmp_name'],$destino);
+		     $this->librosModel->grabar_un_libro($id_editorial,$nombre,$paginas,$isbn,$autor,$tema,$destino.$foto);
 		}else{
-			echo "solo se pueden subir imagen png";
+			echo "solo se pueden subir imagen permitidas";
 		}
 
 		header("Location:".HOME);
