@@ -32,7 +32,7 @@ var los_comentarios = new Vue ({
 
 let btn_comentarioV = document.querySelector('#btnViewComentario');
 // let btn_comentarioA = document.querySelector('#btnAddComentario')
-//let btn_comentarioD = document.querySelector('#btnDeleteComentario')
+// let btn_comentarioD = document.querySelector('#btnDeleteComentario')
 
 btn_comentarioV.addEventListener('click', c=>{
     
